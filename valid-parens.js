@@ -4,18 +4,17 @@
 
 
 function validParentheses(parens){
-  let openCount = 0
-  let closedCount = 0
+  let count = 0
   for ( let i = 0; i < parens.length; i++ ) {
     if ( parens[i] === '(' ) {
-      openCount++
+      count++
     }
     if ( parens[i] === ')' ) {
-      closedCount++
+      count--
     }
-    if ( closedCount > openCount ) {
+    if ( count < 0 ) {
       return false
     }
   }
-  return (openCount === closedCount)
+  return ( count === 0)
 }
