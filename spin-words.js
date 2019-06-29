@@ -5,13 +5,7 @@ Examples:
 spinWords( "Hey fellow warriors" ) => returns "Hey wollef sroirraw" spinWords( "This is a test") => returns "This is a test" spinWords( "This is another test" )=> returns "This is rehtona test" */
 
 function spinWords(string){
-  let wordArray = string.split(' ')
-  for (let i = 0; i < wordArray.length; i++) {
-    if (wordArray[i].length >= 5) {
-      wordArray[i] = wordArray[i].split('').reverse().join('')
-    }
-  }
-  return wordArray.join(' ')
+  return string.split(' ').map(word => {
+    return ( word.length >=5 ) ? word.split('').reverse().join('') : word
+  }).join(' ')
 }
-
-console.log(spinWords('this is a thing that spins around all words that are longer than five characters long'))
