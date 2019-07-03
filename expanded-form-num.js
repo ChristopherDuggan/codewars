@@ -9,12 +9,13 @@ NOTE: All numbers will be whole numbers greater than 0.
 */
 
 function expandedForm(num) {
-  numArrayReversed = num.toString().split('').reverse('')
+  let numArrayReversed = num.toString().split('').reverse('')
   for (let i = 0; i < numArrayReversed.length; i++) {
-    numArrayReversed[i] += '0'.repeat(i)
+    numArrayReversed[i] *= Math.pow(10, i)
   }
-  numArrayReversed = numArrayReversed.filter(num => num != 0)
+  numArrayReversed = numArrayReversed.filter(num => num > 0);
   return numArrayReversed.reverse().join(' + ')
 }
 
 console.log(expandedForm(1203450))
+
