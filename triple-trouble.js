@@ -24,10 +24,10 @@ function tripledouble(num1, num2) {
   for (let i = 0; i < num2Array.length; i++) {
     if (num2Array[i] === num2Array[i + 1]) {
       for (let j = 0; j < num1Array.length; j++) {
-        if (num1Array[j] === num1Array[j + 1] && num1Array[j] === num1Array[j + 2]) {
-          if (num1Array[j] == num2Array[i]) {
-            return 1;
-          }
+        if (num1Array[j] == num2Array[i]
+          && num1Array[j] === num1Array[j + 1]
+          && num1Array[j] === num1Array[j + 2]) {
+          return 1;
         }
       }
     }
