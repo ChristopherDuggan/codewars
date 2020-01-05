@@ -10,8 +10,8 @@ Examples
 */
 
 const highestRank = (arr) => {
-  let highestFrequency = arr[0];
-  let frequency = 1;
+  let highestFrequency;
+  let frequency = 0;
 
   for(let i = 0; i < arr.length; i++) {
 
@@ -21,7 +21,8 @@ const highestRank = (arr) => {
       if(arr[i] == arr[j]) newFrequency++;
     }
 
-    if ((newFrequency > frequency) || (newFrequency == frequency && arr[i] > highestFrequency)) {
+    if ((newFrequency > frequency)
+       || (newFrequency == frequency && arr[i] > highestFrequency)) {
       highestFrequency = arr[i];
       frequency = newFrequency;
     }
