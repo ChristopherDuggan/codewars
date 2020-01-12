@@ -5,24 +5,18 @@
 // Example:
 // 348597 => [7,9,5,8,4,3]
 
-import java.util.Arrays;
+import java.util.*;
 
 public class Kata {
   public static int[] digitize(long n) {
-    String nString = String.valueOf(n);
-    int[] result = new int[nString.length()];
+    ArrayList<Integer> list = new ArrayList<Integer>();
 
-   for(int i = 0; i < nString.length(); i++){
+    while(n > 0) {
+      list.add((int) n % 10);
+      n = n /10;
+    }
 
-      result[i] = Character.getNumericValue(nString.charAt(i));
-   }
-
-   for(int i = 0; i < result.length/2; i++){
-     int temp = result[i];
-     result[i] = result[result.length - i - 1];
-     result[result.length - i - 1 ] = temp;
-   }
-
+    int[] result = list.stream().mapToInt(Integer::intValue).toArray();
     return result;
   }
   public static void main(String[] args) {
