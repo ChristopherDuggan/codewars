@@ -5,21 +5,16 @@
 // Example:
 // 348597 => [7,9,5,8,4,3]
 
-import java.util.*;
 
 public class Kata {
   public static int[] digitize(long n) {
-    ArrayList<Integer> list = new ArrayList<Integer>();
-
-    while(n > 0) {
-      list.add((int) n % 10);
-      n = n /10;
-    }
-
-    int[] result = list.stream().mapToInt(Integer::intValue).toArray();
-    return result;
+    return new StringBuilder().append(n)
+      .reverse()
+      .chars()
+      .map(Character::getNumericValue)
+      .toArray();
   }
   public static void main(String[] args) {
-    digitize(12345);
+    digitize(012345);
   }
 }
