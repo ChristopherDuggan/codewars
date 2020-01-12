@@ -16,27 +16,20 @@ import java.util.*;
 
 public class CountDig {
   public static int nbDig(int n, int d) {
-    int count = 0;
-
-    List<Integer> kList = new ArrayList<Integer>();
-
-    while (n >= 0) {
-      kList.add(n);
-      n = n - 1;
+    int total = 0;
+    for (int i = 0; i <=n; i++) {
+      total += addCount(i*i, d);
     }
+    return total;
+  }
 
-    int[] kArray = kList.stream().mapToInt(Integer::intValue).toArray();
-
-
-    for(int i = 0; i < kArray.length; i++) {
-      kArray[i] = kArray[i] * kArray[i];
-
-      do {
-        int t = kArray[i] % 10;
-        if(t == d) count++;
-        kArray[i] = kArray[i] / 10;
-      } while(kArray[i] > 0);
-     }
+  public static int addCount(int n, int d) {
+    int count = 0;
+    do {
+      if (n % 10 == d)
+        count++;
+      n/=10;
+    } while (n > 0);
     return count;
   }
   public static void main(String args[]){
